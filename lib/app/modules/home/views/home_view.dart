@@ -56,7 +56,9 @@ class HomeView extends StatelessWidget {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () => _controller.saveAndShareQRCode("Data"),
+              onPressed: () => _controller.saveAndShareQRCode(
+                '${_controller.itemName.value},${_controller.itemDescription.value}',
+              ),
               child: Text("Save QR code"),
             ),
           ],
