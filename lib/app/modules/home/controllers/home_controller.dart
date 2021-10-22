@@ -41,6 +41,7 @@ class HomeController extends GetxController {
         embeddedImageStyle: null,
         embeddedImage: null,
         emptyColor: Colors.purple[700],
+        eyeStyle: QrEyeStyle(eyeShape: QrEyeShape.circle),
       );
 
       Directory tempDir = await getTemporaryDirectory();
