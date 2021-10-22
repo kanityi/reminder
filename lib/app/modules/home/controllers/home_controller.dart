@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -56,8 +57,8 @@ class HomeController extends GetxController {
           subject: 'My QR code',
           text: 'Please scan me');
 
-      // final success = await GallerySaver.saveImage(path);
-      // print('info ${success}');
+      final success = await GallerySaver.saveImage(path);
+      print('info ${success}');
     }
   }
 
