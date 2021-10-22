@@ -37,10 +37,11 @@ class HomeController extends GetxController {
     if (qrValidationResult.isValid) {
       final painter = QrPainter.withQr(
         qr: qrValidationResult.qrCode!,
-        color: const Color(0xFF000000),
+        color: Colors.white,
         gapless: true,
         embeddedImageStyle: null,
         embeddedImage: null,
+        emptyColor: Colors.purple[700],
       );
 
       Directory tempDir = await getTemporaryDirectory();
