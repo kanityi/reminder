@@ -49,7 +49,7 @@ class HomeController extends GetxController {
       String path = '$tempPath/$ts.png';
 
       final picData =
-          await painter.toImageData(2048, format: ImageByteFormat.png);
+          await painter.toImageData(1560, format: ImageByteFormat.png);
       await writeToFile(picData!, path);
 
       await Share.shareFiles([path],
