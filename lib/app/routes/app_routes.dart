@@ -5,8 +5,12 @@ abstract class Routes {
   Routes._();
 
   static const HOME = _Paths.HOME;
+  static const QR_GENERATOR = _Paths.QR_GENERATOR;
+  static const QR_SCANNER = _Paths.QR_SCANNER;
 }
 
 abstract class _Paths {
   static const HOME = '/home';
+  static const QR_GENERATOR = '/qr-generator';
+  static const QR_SCANNER = '/qr-scanner';
 }

@@ -55,11 +55,20 @@ class HomeView extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            ElevatedButton(
-              onPressed: () => _controller.saveAndShareQRCode(
-                '${_controller.itemName.value},${_controller.itemDescription.value}',
-              ),
-              child: Text("Save QR code"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () => _controller.saveAndShareQRCode(
+                    '${_controller.itemName.value},${_controller.itemDescription.value}',
+                  ),
+                  child: Text("Save QR code"),
+                ),
+                ElevatedButton(
+                  onPressed: () => _controller.scanQRCode(),
+                  child: Text('Scan Item'),
+                ),
+              ],
             ),
           ],
         ),

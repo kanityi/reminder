@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
@@ -14,6 +15,8 @@ class HomeController extends GetxController {
   final itemDescriptionController = TextEditingController();
   final itemName = ''.obs;
   final itemDescription = ''.obs;
+
+  String scannedQrCode = '';
   @override
   void onInit() {
     super.onInit();
@@ -67,5 +70,28 @@ class HomeController extends GetxController {
     final buffer = data.buffer;
     await File(path).writeAsBytes(
         buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
+  }
+
+  Future<void> scanQRCode() async {
+    try {
+      scannedQrCode = await FlutterBarcodeScanner.scanBarcode(
+        '#ff6666',
+        'Cancel',
+        true,
+        ScanMode.QR,
+      );
+      if (scannedQrCode != '-1') {
+        Get.snackbar(
+          'Results ',
+          'QR Code ${scannedQrCode}',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.amber,
+          colorText: Colors.white,
+        );
+        return;
+      }
+    } on PlatformException {
+      printError(info: 'Error', logFunction: () => 'Error occured');
+    }
   }
 }
